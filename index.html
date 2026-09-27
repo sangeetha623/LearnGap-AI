@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnGap AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">LearnGap<span>AI</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#analyze">Analyze</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="nav-btn" onclick="scrollToAnalyzer()">Start Analysis</button>
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <div class="badge">🤖 AI-Powered Learning Assistant</div>
+
+        <h1>
+            Discover Your
+            <span>Learning Gaps.</span>
+        </h1>
+
+        <p>
+            LearnGap AI analyzes your current skills, identifies what you are
+            missing and creates a personalized learning roadmap for your career.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="primary-btn" onclick="scrollToAnalyzer()">
+                Analyze My Skills →
+            </button>
+
+            <button class="secondary-btn" onclick="showDemo()">
+                See How It Works
+            </button>
+        </div>
+
+        <div class="stats">
+            <div>
+                <strong>AI</strong>
+                <span>Powered Analysis</span>
+            </div>
+
+            <div>
+                <strong>3-Step</strong>
+                <span>Learning Roadmap</span>
+            </div>
+
+            <div>
+                <strong>Career</strong>
+                <span>Focused Skills</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="floating-icon">🧠</div>
+
+        <div class="mini-card top-card">
+            <span>Current Skills</span>
+            <strong>Python • HTML • CSS</strong>
+        </div>
+
+        <div class="brain">AI</div>
+
+        <div class="mini-card bottom-card">
+            <span>Detected Gap</span>
+            <strong>Backend Development</strong>
+        </div>
+    </div>
+
+</section>
+
+<section class="analyzer" id="analyze">
+
+    <div class="section-heading">
+        <div class="badge">✨ Smart Analysis</div>
+        <h2>Find Your Learning Gap</h2>
+        <p>
+            Tell us where you are now and where you want to go.
+            Our AI will identify the skills you need.
+        </p>
+    </div>
+
+    <div class="analyzer-box">
+
+        <div class="form-section">
+
+            <label>Your Current Skills</label>
+            <textarea
+                id="skills"
+                placeholder="Example: Python, HTML, CSS, Java, SQL"
+            ></textarea>
+
+            <label>Target Career / Role</label>
+            <input
+                type="text"
+                id="career"
+                placeholder="Example: Full Stack Developer"
+            >
+
+            <label>Your Experience Level</label>
+
+            <div class="levels">
+                <button class="level active" data-level="Beginner">
+                    🌱 Beginner
+                </button>
+
+                <button class="level" data-level="Intermediate">
+                    🚀 Intermediate
+                </button>
+
+                <button class="level" data-level="Advanced">
+                    🔥 Advanced
+                </button>
+            </div>
+
+            <button class="analyze-btn" onclick="analyzeSkills()">
+                Analyze My Learning Gap
+                <span>→</span>
+            </button>
+
+        </div>
+
+        <div class="info-section">
+
+            <div class="info-icon">🎯</div>
+
+            <h3>What will you get?</h3>
+
+            <div class="feature">
+                <span>✓</span>
+                <div>
+                    <strong>Skill Gap Detection</strong>
+                    <p>Find the important skills you're missing.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <span>✓</span>
+                <div>
+                    <strong>Personalized Roadmap</strong>
+                    <p>Get a step-by-step learning plan.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <span>✓</span>
+                <div>
+                    <strong>Career Recommendations</strong>
+                    <p>Discover skills relevant to your target role.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="results" id="results">
+
+    <div class="section-heading">
+        <div class="badge">📊 AI Results</div>
+        <h2>Your Learning Analysis</h2>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="loader"></div>
+        <p>AI is analyzing your skills...</p>
+    </div>
+
+    <div id="resultContent">
+
+        <div class="result-grid">
+
+            <div class="result-card">
+                <div class="result-icon">💪</div>
+                <h3>Current Skills</h3>
+                <div id="currentSkills"></div>
+            </div>
+
+            <div class="result-card gap-card">
+                <div class="result-icon">🔍</div>
+                <h3>Skill Gaps</h3>
+                <div id="skillGaps"></div>
+            </div>
+
+            <div class="result-card">
+                <div class="result-icon">🎯</div>
+                <h3>Target Role</h3>
+                <h4 id="targetRole">-</h4>
+                <p id="careerMessage"></p>
+            </div>
+
+        </div>
+
+        <div class="roadmap-card">
+
+            <div class="roadmap-title">
+                <div>
+                    <div class="badge">🗺️ Personalized Plan</div>
+                    <h2>Your Learning Roadmap</h2>
+                </div>
+            </div>
+
+            <div id="roadmap" class="roadmap"></div>
+
+        </div>
+
+        <div class="recommendation-card">
+
+            <h2>💡 AI Recommendations</h2>
+
+            <div id="recommendations"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <div class="section-heading">
+        <div class="badge">🌟 About LearnGap AI</div>
+        <h2>Learn Smarter, Not Harder</h2>
+
+        <p>
+            LearnGap AI helps students and beginners understand the difference
+            between their current skills and the skills required for their
+            dream career.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    <div class="logo">LearnGap<span>AI</span></div>
+    <p>AI-powered personalized learning assistant.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
